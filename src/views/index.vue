@@ -57,7 +57,6 @@
     width: 122px;
     height: 48px;
     text-align: center;
-    // font-size: 18px;
     line-height: 48px;
     border-radius: 24px;
     cursor: pointer;

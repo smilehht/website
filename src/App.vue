@@ -26,7 +26,7 @@
 <style lang='less'>
 .page {
     // width: 1190px;
-    height: 100%;
+    min-height: 100%;
     margin: auto;
     flex-direction: column;
     box-shadow: 0 0 30px 0 rgba(0,0,0,.1);
