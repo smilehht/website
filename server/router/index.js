@@ -1,12 +1,9 @@
 
 const Router = require('koa-router');
 const router = new Router({
-    prefix: '/api'
+    // prefix: '/api'
 });
 
-router.use('/report', require('./report/index.js'));
-router.use('/project', require('./project/index.js'));
-router.use('/code', require('./code/index.js'));
-router.use('/dashboard', require('./dashboard/index.js'));
+router.use('/blog', require('./blog/index.js'));
 
 module.exports = router;

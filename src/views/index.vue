@@ -8,8 +8,8 @@
                     <div>该站点用于日常的博客整理和demo展示，欢迎交流学习</div>
                 </div>
                 <div class="flex-wrap btns">
-                    <div class="home-btn blogs">博客</div>
-                    <div class="home-btn demo">Demo</div>
+                    <div class="home-btn blogs" @click='jumpTo("blog")' >博客</div>
+                    <div class="home-btn demo" @click='jumpTo("demo")' >Demo</div>
                 </div>
             </div>
         </div>
@@ -21,6 +21,15 @@
     </div>
 </template>
 
+<script>
+export default {
+    methods: {
+        jumpTo(val) {
+            this.$router.push(`/${val}`)
+        }
+    }
+}
+</script>
 
 
 <style lang="less">

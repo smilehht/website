@@ -29,35 +29,40 @@
 </template>
 
 <script>
-    import Markdown from "vue-meditor";
-    export default {
-        name: "add",
-        data() {
-            return {
-                params: {
-                    title: '',
-                    tag: '',
-                    code: '',
-                    content: ''
-                }
-            }
-        },
-        props: {
-            msg: String
-        },
-        components: {
-            Markdown: Markdown
-        },
-        methods: {
-            submit() {
-                console.log(this.params);
-            },
-            onSave(value) {
-                console.log(value)
-                this.params.content = value;
+import {
+    addBlog
+} from '@/api/blog.js'
+import Markdown from "vue-meditor";
+export default {
+    name: "add",
+    data() {
+        return {
+            params: {
+                title: '',
+                tag: '',
+                code: '',
+                content: ''
             }
         }
-    };
+    },
+    props: {
+        msg: String
+    },
+    components: {
+        Markdown: Markdown
+    },
+    methods: {
+        async submit() {
+            console.log(this.params);
+            let res = await addBlog(this.params);
+            console.log(res);
+        },
+        onSave(value) {
+            console.log(value)
+            this.params.content = value;
+        }
+    }
+};
 </script>
 
 <style lang='less' scoped>

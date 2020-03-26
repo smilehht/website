@@ -22,19 +22,23 @@ export default {
             menu: [
                 {
                     key: 'index',
-                    name: '首页'
+                    name: '首页',
+                    path: '/'
                 },
                 {
                     key: 'blog',
-                    name: '博客'
+                    name: '博客',
+                    path: '/blog'
                 },
                 {
                     key: 'demo',
-                    name: 'Demo'
+                    name: 'Demo',
+                    path: '/demo'
                 },
                 {
                     key: 'about',
-                    name: '关于'
+                    name: '关于',
+                    path: '/about'
                 }
             ]
         }
@@ -42,7 +46,8 @@ export default {
     methods: {
         changeTab(item) {
             this.current = item.key;
-        }
+            this.$router.push(`${item.path}`)
+        },
     }
 }
 </script>
