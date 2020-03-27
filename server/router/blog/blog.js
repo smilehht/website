@@ -21,7 +21,7 @@ module.exports = {
         } catch (error) {
             data = [];
         }
-        data.push({
+        data.unshift({
             id: Date.now().toString(36),
             title,
             tag,

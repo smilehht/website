@@ -1,20 +1,20 @@
 <template>
     <div class="flex-wrap home">
-        <div class="flex-wrap flex left">
-            <div class="content">
+        <div class="flex-wrap flex home-left">
+            <div class="home-content">
                 <h2>滔滔江水的博客</h2>
-                <div class="intro">
+                <div class="home-intro">
                     <div>欢迎来访 ~ ~ ~</div>
                     <div>该站点用于日常的博客整理和demo展示，欢迎交流学习</div>
                 </div>
-                <div class="flex-wrap btns">
-                    <div class="home-btn blogs" @click='jumpTo("blog")' >博客</div>
-                    <div class="home-btn demo" @click='jumpTo("demo")' >Demo</div>
+                <div class="flex-wrap home-btns">
+                    <div class="home-btn home-blogs" @click='jumpTo("blog")' >博客</div>
+                    <div class="home-btn home-demo" @click='jumpTo("demo")' >Demo</div>
                 </div>
             </div>
         </div>
-        <div class="flex-wrap flex right">
-            <div class="content">
+        <div class="flex-wrap flex home-right">
+            <div class="home-content">
                 <img class='home-img' src="../assets/home.png" alt="">
             </div>
         </div>
@@ -37,7 +37,7 @@ export default {
     flex: 1;
 }
 
-.left, .right {
+.home-left, .home-right {
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -47,11 +47,11 @@ export default {
 //     justify-content: center;
 // }
 
-.content {
+.home-content {
     min-width: 400px;
 }
 
-.intro {
+.home-intro {
     padding: 40px 0;
     color: #999;
     line-height: 30px;
@@ -71,12 +71,12 @@ export default {
     cursor: pointer;
 }
 
-.blogs {
+.home-blogs {
     color: #fff;
     background-color: #3894FF;
 }
 
-.demo {
+.home-demo {
     margin-left: 30px;
     color: #3894FF;
     border: 2px solid #3894FF;

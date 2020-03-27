@@ -1,6 +1,6 @@
 <template>
     <div class="flex-wrap header">
-        <div class="flex logo">滔滔江水</div>
+        <div class="flex logo" @click='jumpTo("")'>滔滔江水</div>
         <div class="flex-wrap menu">
             <div
                 v-for='(item, index) in menu'
@@ -48,6 +48,9 @@ export default {
             this.current = item.key;
             this.$router.push(`${item.path}`)
         },
+        jumpTo(val) {
+            this.$router.push(`/${val}`)
+        }
     }
 }
 </script>
@@ -66,6 +69,7 @@ export default {
     margin-left: 60px;
     color: #3894FF;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .menu {
