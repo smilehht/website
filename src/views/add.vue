@@ -53,7 +53,6 @@ export default {
     },
     methods: {
         async submit() {
-            console.log(this.params);
             let {code, msg} = await addBlog(this.params);
             if (code) {
                 alert(msg);
@@ -62,7 +61,6 @@ export default {
             this.$router.push(`/blog`)
         },
         onSave(value) {
-            console.log(value)
             this.params.content = value;
         }
     }

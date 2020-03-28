@@ -21,17 +21,28 @@ module.exports = {
         } catch (error) {
             data = [];
         }
-        data.unshift({
+        let obj = {
             id: Date.now().toString(36),
             title,
             tag,
             date: (new Date()).toLocaleDateString()
-        });
+        } 
+        data.unshift(obj);
         
         let file = JSON.stringify(data, null, '\t');
         utils.writeFile({
             filename: file_path,
             content: file,
+            code: 'utf-8'
+        });
+
+
+        let blog_path = path.resolve(__dirname, `../../data/blogs/${obj.id}.json`);
+        obj.content = content;
+        let cont = JSON.stringify(obj, null, '\t');
+        utils.writeFile({
+            filename: blog_path,
+            content: cont,
             code: 'utf-8'
         });
 

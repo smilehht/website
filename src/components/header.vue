@@ -43,6 +43,14 @@ export default {
             ]
         }
     },
+    mounted() {
+        this.getCurrent();
+    },
+    watch: {
+        $route() {
+            this.getCurrent();
+        }
+    },
     methods: {
         changeTab(item) {
             this.current = item.key;
@@ -50,6 +58,14 @@ export default {
         },
         jumpTo(val) {
             this.$router.push(`/${val}`)
+        },
+        getCurrent() {
+            let {
+                path = ''
+            } = this.$route;
+            if (path) {
+                this.current = path.substr(1) || 'index';
+        }
         }
     }
 }
