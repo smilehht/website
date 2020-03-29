@@ -77,6 +77,7 @@ export default {
 }
 
 .home-demo {
+    line-height: 44px;
     margin-left: 30px;
     color: #3894FF;
     border: 2px solid #3894FF;

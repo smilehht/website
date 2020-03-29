@@ -8,14 +8,25 @@
                         <div
                             v-for='(item, index) in list'
                             :key='index'
-                            :class='["list-item", current == item.id && "item-active"]'
+                            :class='["one-line list-item", current == item.id && "item-active"]'
                             @click="jumpTo(`${item.id}`)"
                         >
                             {{item.title}}
                         </div>
                     </div>
                 </div>
-                <div class="flex blog-right" v-html="content"></div>
+                <div class="flex blog-right">
+                    <template v-if="detail">
+                        <h1>{{detail.title}}</h1>
+                        <div class=''>{{detail.tag}}/{{detail.date}}</div>
+                        <div class="conent" v-html="detail.content.html"></div>
+                    </template>
+                    <template v-else>
+                        <div class="loading">
+                            加载中...
+                        </div>
+                    </template>
+                </div>
             </div>
         </template>
         <template v-else>
@@ -37,7 +48,7 @@ export default {
     data() {
         return {
             list: [],
-            content: '',
+            detail: null,
             current: '',
             isRequested: false
         }
@@ -100,7 +111,8 @@ export default {
             } = await getBLogDetail({
                 id: this.current
             });
-            this.content = data.content.html;
+            this.detail = data;
+            console.log(data);
         }
     }
 }
@@ -113,11 +125,16 @@ export default {
     padding: 20px 40px 10px;
     
     .blog-left {
-        min-width: 300px;
         overflow-y: scroll;
     }
 
+    .blog-right {
+        padding-left: 30px;
+    }
+
     .list-item {
+        min-width: 200px;
+        max-width: 300px;
         height: 40px;
         line-height: 40px;
         cursor: pointer;
