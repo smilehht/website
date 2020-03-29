@@ -112,7 +112,6 @@ export default {
                 id: this.current
             });
             this.detail = data;
-            console.log(data);
         }
     }
 }
