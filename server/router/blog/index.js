@@ -29,7 +29,25 @@ router.get('/getBlogList', async (ctx) => {
 
 router.post('/addBlog', async (ctx) => {
     let body = ctx.request.body;
-    
+    let {code, title} = body;
+    if (!code || code != 'huhongtao') {
+        ctx.body = {
+            code: 1,
+            msg: '提交码错误',
+            data: {}
+        }
+        return;
+    }
+
+    if (!title) {
+        ctx.body = {
+            code: 1,
+            msg: '文章标题不能为空',
+            data: {}
+        }
+        return;
+    }
+
     // 写blog.json
     blog.saveBlog(body);
     ctx.body = {

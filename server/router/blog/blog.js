@@ -6,7 +6,6 @@ module.exports = {
         let {
             title,
             tag,
-            code,
             content
         } = params;
 
