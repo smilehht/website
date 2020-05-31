@@ -3,7 +3,9 @@
         <div class="header">
             <Header></Header>
         </div>
-        <router-view></router-view>
+        <div class="body">
+            <router-view></router-view>
+        </div>
         <div class="bottom">
             <Footer />
         </div>
@@ -33,6 +35,7 @@
 }
 
 .body {
+    position: relative;
     flex: 1;
     // margin-top: 10px;
     background-color: #fff;

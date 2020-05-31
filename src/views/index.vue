@@ -34,6 +34,9 @@ export default {
 
 <style lang="less">
 .home {
+    position: absolute;
+    height: 100%;
+    width: 100%;
     flex: 1;
 }
 

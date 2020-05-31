@@ -1,32 +1,27 @@
 <template>
-    <div v-if="isRequested" >
+    <div v-if="isRequested" class="flex-wrap demo">
         <template v-if="list.length">
-            <div class="flex-wrap demo">
-                <div class="demo-left">
-                    <button class="demo-add" @click="toAdd('/add')">写博客</button>
-                    <div class="demo-list">
-                        <div
-                            v-for='(item, index) in list'
-                            :key='index'
-                            :class='["one-line list-item", current == item.id && "item-active"]'
-                            @click="jumpTo(`${item.id}`)"
-                        >
-                            {{item.title}}
-                        </div>
+            <div class="demo-left">
+                <div class="demo-list">
+                    <div
+                        v-for='(item, index) in list'
+                        :key='index'
+                        :class='["one-line list-item", current == item.id && "item-active"]'
+                        @click="jumpTo(`${item.id}`)"
+                    >
+                        {{item.title}}
                     </div>
                 </div>
-                <div class="flex demo-right">
-                    <template v-if="detail">
-                        <h1>{{detail.title}}</h1>
-                        <div class=''>{{detail.tag}}/{{detail.date}}</div>
-                        <div class="conent" v-html="detail.content.html"></div>
-                    </template>
-                    <template v-else>
-                        <div class="loading">
-                            加载中...
-                        </div>
-                    </template>
-                </div>
+            </div>
+            <div class="flex demo-right">
+                <template v-if="detail">
+                    <iframe width='100%' height='100%' src='http://baidu.com' />
+                </template>
+                <template v-else>
+                    <div class="loading">
+                        加载中...
+                    </div>
+                </template>
             </div>
         </template>
         <template v-else>
@@ -121,11 +116,16 @@ export default {
 
 <style lang="less">
 .demo {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
     flex: 1;
     padding: 20px 40px 10px;
     
     .demo-left {
         overflow-y: scroll;
+        border-right: 1px solid #e6e6e6;
     }
 
     .demo-right {
@@ -171,5 +171,8 @@ export default {
 .loadding {
     text-align: center;
     padding: 30px;
+}
+iframe {
+    border: none;
 }
 </style>
