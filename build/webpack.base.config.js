@@ -8,7 +8,6 @@ const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 let env = process.env.NODE_ENV;
 let isProd = env == 'production';
-let staticPath = isProd && '/public' || '.';
 
 let config = {
     entry: path.resolve(__dirname, '../view/index.js'),
@@ -79,14 +78,8 @@ let config = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../view/index.html'),
             inject: 'body',
-            filename: (isProd ? '../view' : '.') + '/index.html',
+            filename: 'index.html',
             chunks: '',
-            // vuejs
-            vue: `<script type='text/javascript' src='${staticPath}/vue2.3.3.min.js'></script>`,
-            vueRouter: `<script type='text/javascript' src='${staticPath}/vue-router.min.js'></script>`,
-            heatmap: `<script type='text/javascript' src='${staticPath}/heatmap.min.js'></script>`,
-            echarts: `<script type='text/javascript' src='${staticPath}/echarts.min1.js'></script>`,
-            echartsWordcloud: `<script type='text/javascript' src='${staticPath}/echarts-wordcloud.min.js'></script>`
         }),
         new FileManagerPlugin({
             onStart: {

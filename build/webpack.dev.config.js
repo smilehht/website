@@ -24,33 +24,6 @@ let config = merge(baseConfig, {
             }
         }
     },
-    // devServer: {
-    //     noInfo: true,
-    //     hot: true,
-    //     hotOnly: true,
-    //     inline: true,
-    //     contentBase: path.join(__dirname, "../dist"),
-    //     port: 8083,
-    //     host: 't.jd.com',
-    //     proxy: [
-    //         {
-    //             context: ['/api'],
-    //             target: 'http://127.0.0.1:3000',
-    //             // pathRewrite: { '^/api': '' },
-    //             // pathRewrite: '^/api',
-    //             changeOrigin: true,
-    //             secure: false,
-    //         },
-    //         {
-    //             context: ['/v4'],
-    //             target: 'https://git.jd.com',
-    //             // pathRewrite: { '^/api': '' },
-    //             // pathRewrite: '^/api',
-    //             changeOrigin: true,
-    //             secure: false,
-    //         }
-    //     ]
-    // },
     module: {
         rules: [
             {

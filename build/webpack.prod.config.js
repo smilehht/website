@@ -1,15 +1,13 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.config');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-
-let outPath = '../dist/';
+// const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 let config = merge(baseConfig, {
     mode: 'production',
     output: {
         publicPath: '/public/',
-        path: path.resolve(__dirname, outPath),
+        path: path.resolve(__dirname, '../dist'),
     },
     module: {
         rules: [
@@ -20,12 +18,12 @@ let config = merge(baseConfig, {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin({
-            root: path.resolve(__dirname, '../'),
-            verbose: true,
-            dry: false,
-            exclude: ['dll']
-        })
+        // new CleanWebpackPlugin({
+        //     root: path.resolve(__dirname, '../'),
+        //     verbose: true,
+        //     dry: false,
+        //     exclude: ['dll']
+        // })
     ]
 });
 
