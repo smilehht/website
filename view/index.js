@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+window.Vue = Vue;
 import Router from 'vue-router';
 import routes from './routes/index.js';
 

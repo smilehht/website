@@ -1,0 +1,8 @@
+{
+    "plugins": [["import", {
+      "libraryName": "jad-pc",
+      "camel2UnderlineComponentName": false,
+      "camel2DashComponentName": false,
+      "libraryDirectory": "src/components"
+    }]]
+}

@@ -1,5 +1,6 @@
 var path = require('path');
 
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
     // resolve: {
@@ -25,5 +26,15 @@ module.exports = {
                 secure: false,
             }
         }
+    },
+    configureWebpack: {
+        plugins: [
+            new FileManagerPlugin({
+                onStart: {
+                    source: path.resolve(__dirname, './src/demo'),
+                    destination: path.resolve(__dirname, './dist/')
+                }
+            })
+        ]
     }
 }

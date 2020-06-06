@@ -7,7 +7,7 @@ const app = new Koa();
 app.use(bodyParser())
 app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(3333, () => {
+app.listen(3000, () => {
   console.log('This server is running')
-  console.log('port is 3333')
+  console.log('port is 3000')
 })
